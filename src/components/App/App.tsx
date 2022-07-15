@@ -2,6 +2,7 @@ import FirstComponent from '../FirstComponent';
 import logo from './logo.svg';
 
 import './App.css';
+import ClassComponent from '../ClassComponent';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
          <img src={logo} className="App-logo" alt="logo" />
        
         <FirstComponent />
+        <ClassComponent example={'first props'} />
+
         <a
           className="App-link"
           href="https://reactjs.org"

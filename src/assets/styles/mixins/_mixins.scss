@@ -5,6 +5,18 @@
   }
 }
 
+@mixin light-purple {
+  :root {
+    @content;
+  }
+}
+
+@mixin light-pink {
+  :root {
+    @content;
+  }
+}
+
 @mixin dark {
   .dark:root {
     @content;

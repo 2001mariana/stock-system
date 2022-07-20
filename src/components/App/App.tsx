@@ -3,6 +3,7 @@ import logo from './logo.svg';
 
 import './App.css';
 import ClassComponent from '../ClassComponent';
+import LifeCycle from '../LifeCycle';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
        
         <FirstComponent />
         <ClassComponent example={'first props'} />
+        <LifeCycle />
 
         <a
           className="App-link"

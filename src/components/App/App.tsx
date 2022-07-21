@@ -1,8 +1,9 @@
 import Container from '../../sharedComponents/Container'
+import Switch from '../../sharedComponents/Switch/Switch'
 import Table from '../../sharedComponents/Table'
 import Header from '../Header/Header'
 
-import './App.css'
+import './App.scss'
 
 function App() {
   return (
@@ -10,6 +11,9 @@ function App() {
       <Header title="Header" />
       <Container>
         <Table />
+        <Switch />
+
+        <div className="App__test-color">cor</div>
       </Container>
     </div>
   )

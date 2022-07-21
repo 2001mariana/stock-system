@@ -1,14 +1,18 @@
-import Button from '../Button';
+import Button from '../../sharedComponents/Button';
+import Container from '../../sharedComponents/Container';
 import Header from '../Header/Header';
+
 import './App.css'
 
 function App() {
   return (
     <div className="App">
       <Header title='Header' />
-      <div className='Container'>
+      
+      qualquer coisa 
+      <Container>
         <Button label='Button' size='small' variant='solid' color={'primary'} onClick={() => console.log('clicou no botão')} />
-      </div>
+      </Container>
       
     </div>
   );

@@ -1,13 +1,13 @@
 import './Header.scss'
 
 interface HeaderProps {
-    title: string
+  title: string
 }
 
 const Header = ({ title } : HeaderProps) => {
 return (
     <header className="Header">
-    <h1>{title}</h1>
+     <h1>{title}</h1>
     </header>
 )
 }

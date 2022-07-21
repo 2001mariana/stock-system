@@ -1,4 +1,5 @@
 import { ReactNode } from 'react'
+
 import './Container.scss'
 
 interface ContainerProps {
@@ -6,9 +7,7 @@ interface ContainerProps {
 }
 
 const Container = ({ children }: ContainerProps) => {
-  return <div className="Container">
-    {children}
-  </div>
+  return <div className="Container">{children}</div>
 }
 
 export default Container

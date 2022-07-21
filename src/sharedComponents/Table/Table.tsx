@@ -1,13 +1,19 @@
 import './Table.scss'
 
+const headers = [
+  { key: 'name', value: 'Product' },
+  { key: 'price', value: 'Price' },
+  { key: 'stock', value: 'Available Stock' }
+]
+
 const Table = () => {
   return (
     <table className="Table">
       <thead>
         <tr>
-          <th>Product</th>
-          <th>Price</th>
-          <th className="right">Stock</th>
+          {headers.map((headerData) => (
+            <th key={headerData.key}>{headerData.value}</th>
+          ))}
         </tr>
       </thead>
       <tbody>

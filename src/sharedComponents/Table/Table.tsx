@@ -1,60 +1,25 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import Products from './Table.mockData'
+import organizeData from '../../utils/organizeDataForTable'
 import './Table.scss'
 
-const headers: TableHeader[] = [
-  { key: 'id', value: '#' },
-  { key: 'name', value: 'Product' },
-  { key: 'price', value: 'Price', right: true },
-  { key: 'stock', value: 'Available Stock', right: true }
-]
-
-declare interface TableHeader {
+export interface TableHeader {
   key: string
   value: string
   right?: boolean
 }
 
-type IndexedHeaders = {
-  [key: string]: TableHeader
-}
-
-type OrganizedItem = {
-  [key: string]: any
-}
-
-function organizeData(
-  data: any[],
+declare interface TableProps {
   headers: TableHeader[]
-): [OrganizedItem[], IndexedHeaders] {
-  const indexedHeaders: IndexedHeaders = {}
-
-  headers.forEach((header) => {
-    indexedHeaders[header.key] = {
-      ...header
-    }
-  })
-
-  const headerKeysInOrder = Object.keys(indexedHeaders)
-
-  const organizedData = data.map((item) => {
-    const organizedItem: OrganizedItem = {}
-
-    headerKeysInOrder.forEach((key) => {
-      organizedItem[key] = item[key]
-    })
-
-    organizedItem.$original = item
-
-    return organizedItem
-  })
-
-  return [organizedData, indexedHeaders]
+  data: any[]
+  enableActions?: boolean
+  onDelete?: (item: any) => void
+  onEdit?: (item: any) => void
+  onViewDetail?: (item: any) => void
 }
 
-const Table = () => {
-  const [organizedData, indexedHeaders] = organizeData(Products, headers)
+const Table = ({ headers, data }: TableProps) => {
+  const [organizedData, indexedHeaders] = organizeData(data, headers)
   return (
     <table className="Table">
       <thead>

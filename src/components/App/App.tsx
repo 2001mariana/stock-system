@@ -1,8 +1,9 @@
+import { useState } from 'react'
 import Container from '../../sharedComponents/Container'
 import Table, { TableHeader } from '../../sharedComponents/Table'
 import Products from '../../sharedComponents/Table/Table.mockData'
 import Header from '../Header/Header'
-import ProductForm from '../Products/ProductForm'
+import ProductForm, { ProductCreator } from '../Products/ProductForm'
 
 import './App.css'
 
@@ -14,12 +15,24 @@ const headers: TableHeader[] = [
 ]
 
 function App() {
+  const [products, setProducts] = useState(Products)
+
+  const handleProductSubmit = (product: ProductCreator) => {
+    setProducts([
+      ...products,
+      {
+        id: products.length + 1,
+        ...product
+      }
+    ])
+  }
+
   return (
     <div className="App">
       <Header title="Header" />
       <Container>
-        <Table headers={headers} data={Products} />
-        <ProductForm />
+        <Table headers={headers} data={products} />
+        <ProductForm onSubmit={handleProductSubmit} />
       </Container>
     </div>
   )

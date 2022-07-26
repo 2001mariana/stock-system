@@ -9,7 +9,17 @@ const initialFormState = {
   stock: ''
 }
 
-function ProductForm() {
+export interface ProductCreator {
+  name: string
+  price: number
+  stock: number
+}
+
+declare interface ProductFormProps {
+  onSubmit: (product: ProductCreator) => void
+}
+
+function ProductForm({ onSubmit }: ProductFormProps) {
   const [form, setForm] = useState(initialFormState)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,10 +31,21 @@ function ProductForm() {
     })
   }
 
+  const handleFormSubmit = () => {
+    const productDTO = {
+      name: String(form.name),
+      price: parseFloat(form.price),
+      stock: Number(form.stock)
+    }
+    onSubmit(productDTO)
+    setForm(initialFormState)
+  }
+
   return (
-    <Form title="Product Form" onSubmit={() => console.log(form)}>
+    <Form title="Product Form" onSubmit={handleFormSubmit}>
       <Input
         onChange={handleInputChange}
+        value={form.name}
         name="name"
         label="Name"
         placeholder="E.g.: Cookie"
@@ -32,6 +53,7 @@ function ProductForm() {
       />
       <Input
         onChange={handleInputChange}
+        value={form.price}
         name="price"
         label="Price"
         type="number"
@@ -42,6 +64,7 @@ function ProductForm() {
       />
       <Input
         onChange={handleInputChange}
+        value={form.stock}
         name="stock"
         label="Stock"
         type="number"

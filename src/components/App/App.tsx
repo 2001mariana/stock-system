@@ -1,10 +1,8 @@
-import Button from '../../sharedComponents/Button'
 import Container from '../../sharedComponents/Container'
-import Form from '../../sharedComponents/Form'
-import Input from '../../sharedComponents/Input'
 import Table, { TableHeader } from '../../sharedComponents/Table'
 import Products from '../../sharedComponents/Table/Table.mockData'
 import Header from '../Header/Header'
+import ProductForm from '../Products/ProductForm'
 
 import './App.css'
 
@@ -21,23 +19,7 @@ function App() {
       <Header title="Header" />
       <Container>
         <Table headers={headers} data={Products} />
-        <Form title="Product Form" onSubmit={console.log}>
-          <Input label="Nome" placeholder="E.g.: Cookie" />
-          <Input
-            label="Price"
-            type="number"
-            step={0.01}
-            min="0"
-            placeholder="E.g.: 1.25"
-          />
-          <Input label="Stock" type="number" min="0" placeholder="E.g.: 12" />
-          <Button
-            label="Submit"
-            size={'small'}
-            color={'primary'}
-            variant={'solid'}
-          />
-        </Form>
+        <ProductForm />
       </Container>
     </div>
   )

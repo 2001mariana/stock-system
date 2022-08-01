@@ -1,14 +1,16 @@
 import React, { useState } from 'react'
+
 import Button from '../../sharedComponents/Button'
 import Form from '../../sharedComponents/Form'
 import Input from '../../sharedComponents/Input'
+import { Product } from '../../sharedComponents/Table/Table.mockData'
 
-const initialFormState = {
-  name: '',
-  price: '',
-  stock: ''
+declare interface InitialFormState {
+  id?: number
+  name: string
+  price: string
+  stock: string
 }
-
 export interface ProductCreator {
   name: string
   price: number
@@ -16,10 +18,25 @@ export interface ProductCreator {
 }
 
 declare interface ProductFormProps {
-  onSubmit: (product: ProductCreator) => void
+  formProps?: Product
+  onSubmit?: (product: ProductCreator) => void
+  onUpdate?: (product: Product) => void
 }
 
-function ProductForm({ onSubmit }: ProductFormProps) {
+function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
+  const initialFormState: InitialFormState = formProps
+    ? {
+        id: formProps.id,
+        name: formProps.name,
+        price: String(formProps.price),
+        stock: String(formProps.stock)
+      }
+    : {
+        name: '',
+        price: '',
+        stock: ''
+      }
+
   const [form, setForm] = useState(initialFormState)
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -31,13 +48,30 @@ function ProductForm({ onSubmit }: ProductFormProps) {
     })
   }
 
-  const handleFormSubmit = () => {
+  const updateProduct = (product: InitialFormState) => {
     const productDTO = {
-      name: String(form.name),
-      price: parseFloat(form.price),
-      stock: Number(form.stock)
+      id: Number(product.id),
+      name: String(product.name),
+      price: parseFloat(product.price),
+      stock: Number(product.stock)
     }
-    onSubmit(productDTO)
+
+    onUpdate && onUpdate(productDTO)
+  }
+
+  const createProduct = (product: InitialFormState) => {
+    const productDTO = {
+      name: String(product.name),
+      price: parseFloat(product.price),
+      stock: Number(product.stock)
+    }
+
+    onSubmit && onSubmit(productDTO)
+  }
+
+  const handleFormSubmit = () => {
+    form.id ? updateProduct(form) : createProduct(form)
+
     setForm(initialFormState)
   }
 

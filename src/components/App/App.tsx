@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import Container from '../../sharedComponents/Container'
 import Table, { TableHeader } from '../../sharedComponents/Table'
-import Products from '../../sharedComponents/Table/Table.mockData'
+import Products, { Product } from '../../sharedComponents/Table/Table.mockData'
 import Header from '../Header/Header'
 import ProductForm, { ProductCreator } from '../Products/ProductForm'
 
@@ -28,12 +28,24 @@ function App() {
     ])
   }
 
+  const handleProductUpdate = (newProduct: Product) => {
+    setProducts(
+      products.map((product) =>
+        product.id === newProduct.id ? newProduct : product
+      )
+    )
+  }
+
   return (
     <div className="App">
       <Header title="Header" />
       <Container>
         <Table headers={headers} data={products} />
-        <ProductForm onSubmit={handleProductSubmit} />
+        <ProductForm
+          formProps={products[0]}
+          onSubmit={handleProductSubmit}
+          onUpdate={handleProductUpdate}
+        />
       </Container>
     </div>
   )

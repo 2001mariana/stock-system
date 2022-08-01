@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import Button from '../../sharedComponents/Button'
 import Form from '../../sharedComponents/Form'
@@ -38,6 +38,10 @@ function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
       }
 
   const [form, setForm] = useState(initialFormState)
+
+  useEffect(() => {
+    setForm(initialFormState)
+  }, [formProps])
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = event.target

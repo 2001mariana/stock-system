@@ -60,7 +60,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header title="Header" />
+      <Header title="Stock System" />
       <Container>
         <Table
           headers={headers}

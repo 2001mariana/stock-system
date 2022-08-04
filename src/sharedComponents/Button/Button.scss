@@ -128,7 +128,10 @@ button.Button--outlined-primary {
 
   &:hover {
     border-color: var(--button-outlined-primary-hover-border-color);
+    background-color: var(--button-outlined-primary-hover-bg-color);
     color: var(--button-outlined-primary-hover-color);
+    transition: background-color 0.5s, border-color 0.5s, box-shadow 0.5s,
+    color 0.5s;
   }
 }
 
@@ -213,11 +216,12 @@ button.Button--text-danger {
   --button-outlined-primary-color: #d04ed6;
   --button-outlined-primary-disabled-border-color: #b300b340;
   --button-outlined-primary-disabled-color: #b300b340;
-  --button-outlined-primary-focus-border-color: #b300b3;;
+  --button-outlined-primary-focus-border-color: #b300b3;
   --button-outlined-primary-focus-box-shadow-color: #b300b340;
-  --button-outlined-primary-focus-color: #b300b3;;
-  --button-outlined-primary-hover-border-color: #b300b3;;
-  --button-outlined-primary-hover-color: #b300b3;;
+  --button-outlined-primary-focus-color: #b300b3;
+  --button-outlined-primary-hover-border-color: #b300b3;
+  --button-outlined-primary-hover-bg-color: #b300b3;
+  --button-outlined-primary-hover-color: #ffffff;
 
   /* Outlined Danger */
   --button-outlined-danger-border-color: #ef5350;

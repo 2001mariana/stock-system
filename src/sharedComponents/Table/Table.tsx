@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+import { mdiDelete, mdiEye, mdiPencil } from '@mdi/js'
 import organizeData from '../../utils/organizeDataForTable'
 import Button from '../Button'
 
@@ -59,28 +60,28 @@ const Table = ({
               )}
               {enableActions && (
                 <td className="actions right">
-                  {onDelete && (
+                  {onViewDetail && (
                     <Button
-                      onClick={() => onDelete && onDelete(row)}
-                      variant="outlined"
-                      label="Delete"
+                      onClick={() => onViewDetail && onViewDetail(row)}
+                      icon={mdiEye}
                       size="small-xxx"
+                      variant="outlined"
                     />
                   )}
                   {onEdit && (
                     <Button
                       onClick={() => onEdit && onEdit(row)}
-                      label="Edit"
+                      icon={mdiPencil}
                       size="small-xxx"
                       variant="outlined"
                     />
                   )}
-                  {onViewDetail && (
+                  {onDelete && (
                     <Button
-                      onClick={() => onViewDetail && onViewDetail(row)}
-                      label="Detail"
-                      size="small-xxx"
+                      onClick={() => onDelete && onDelete(row)}
                       variant="outlined"
+                      icon={mdiDelete}
+                      size="small-xxx"
                     />
                   )}
                 </td>

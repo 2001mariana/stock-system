@@ -111,7 +111,7 @@ function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
         required
       />
       <Button
-        label="Submit"
+        label={form.id ? 'Update' : 'Submit'}
         size={'small'}
         color={'primary'}
         variant={'solid'}

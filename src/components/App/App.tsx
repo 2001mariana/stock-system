@@ -5,6 +5,8 @@ import Table, { TableHeader } from '../../sharedComponents/Table'
 import Products, { Product } from '../../sharedComponents/Table/Table.mockData'
 import Header from '../Header/Header'
 import ProductForm, { ProductCreator } from '../Products/ProductForm'
+import SwalProductDelete from '../Swal/SwalProductDelete'
+import SwalProductDetail from '../Swal/SwalProductDetail'
 
 import './App.css'
 
@@ -18,9 +20,7 @@ const headers: TableHeader[] = [
 function App() {
   const [products, setProducts] = useState(Products)
 
-  const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>(
-    products[0]
-  )
+  const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>()
 
   const handleProductSubmit = (product: ProductCreator) => {
     setProducts([
@@ -42,6 +42,22 @@ function App() {
     setUpdatingProduct(undefined)
   }
 
+  const handleProductEdit = (product: Product) => {
+    setUpdatingProduct(product)
+  }
+
+  const handleProductDetail = (product: Product) => {
+    SwalProductDetail(product)
+  }
+
+  const productDelete = (productProps: Product) => {
+    setProducts(products.filter((product) => product.id !== productProps.id))
+  }
+
+  const handleProductDelete = (product: Product) => {
+    SwalProductDelete({ product: product, productDelete: productDelete })
+  }
+
   return (
     <div className="App">
       <Header title="Header" />
@@ -50,9 +66,9 @@ function App() {
           headers={headers}
           data={products}
           enableActions
-          onDelete={console.log}
-          onEdit={console.log}
-          onViewDetail={console.log}
+          onDelete={handleProductDelete}
+          onEdit={handleProductEdit}
+          onViewDetail={handleProductDetail}
         />
         <ProductForm
           formProps={updatingProduct}

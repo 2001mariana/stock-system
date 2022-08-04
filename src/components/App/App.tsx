@@ -46,7 +46,14 @@ function App() {
     <div className="App">
       <Header title="Header" />
       <Container>
-        <Table headers={headers} data={products} />
+        <Table
+          headers={headers}
+          data={products}
+          enableActions
+          onDelete={console.log}
+          onEdit={console.log}
+          onViewDetail={console.log}
+        />
         <ProductForm
           formProps={updatingProduct}
           onSubmit={handleProductSubmit}

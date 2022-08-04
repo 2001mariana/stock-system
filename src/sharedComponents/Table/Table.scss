@@ -38,7 +38,11 @@
       tr td.right {
         text-align: right;
       }
+
+      td.actions button {
+          margin: 3px;
     }
+  }
 
 
   @include mixins.light-purple {

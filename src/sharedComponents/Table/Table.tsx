@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import organizeData from '../../utils/organizeDataForTable'
+import Button from '../Button'
+
 import './Table.scss'
 
 export interface TableHeader {
@@ -18,7 +20,14 @@ declare interface TableProps {
   onViewDetail?: (item: any) => void
 }
 
-const Table = ({ headers, data }: TableProps) => {
+const Table = ({
+  headers,
+  data,
+  enableActions,
+  onDelete,
+  onEdit,
+  onViewDetail
+}: TableProps) => {
   const [organizedData, indexedHeaders] = organizeData(data, headers)
   return (
     <table className="Table">
@@ -29,6 +38,7 @@ const Table = ({ headers, data }: TableProps) => {
               {header.value}
             </th>
           ))}
+          {enableActions && <th className="right">Actions</th>}
         </tr>
       </thead>
       <tbody>
@@ -37,13 +47,43 @@ const Table = ({ headers, data }: TableProps) => {
             <tr key={i}>
               {Object.keys(row).map((item, i) =>
                 item !== '$original' ? (
-                  <td
-                    key={row.$original.id + i}
-                    className={indexedHeaders[item].right ? 'right' : ''}
-                  >
-                    {row[item]}
-                  </td>
+                  <>
+                    <td
+                      key={row.$original.id + i}
+                      className={indexedHeaders[item].right ? 'right' : ''}
+                    >
+                      {row[item]}
+                    </td>
+                  </>
                 ) : null
+              )}
+              {enableActions && (
+                <td className="actions right">
+                  {onDelete && (
+                    <Button
+                      onClick={() => onDelete && onDelete(row)}
+                      variant="outlined"
+                      label="Delete"
+                      size="small-xxx"
+                    />
+                  )}
+                  {onEdit && (
+                    <Button
+                      onClick={() => onEdit && onEdit(row)}
+                      label="Edit"
+                      size="small-xxx"
+                      variant="outlined"
+                    />
+                  )}
+                  {onViewDetail && (
+                    <Button
+                      onClick={() => onViewDetail && onViewDetail(row)}
+                      label="Detail"
+                      size="small-xxx"
+                      variant="outlined"
+                    />
+                  )}
+                </td>
               )}
             </tr>
           )

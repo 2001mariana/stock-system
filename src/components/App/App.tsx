@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
+import { getAllProducts } from '../../services/Procts.services'
 import Container from '../../sharedComponents/Container'
 import Table, { TableHeader } from '../../sharedComponents/Table'
-import Products, { Product } from '../../sharedComponents/Table/Table.mockData'
+import { Product } from '../../sharedComponents/Table/Table.mockData'
 import Header from '../Header/Header'
 import ProductForm, { ProductCreator } from '../Products/ProductForm'
 import SwalProductDelete from '../Swal/SwalProductDelete'
@@ -18,9 +19,17 @@ const headers: TableHeader[] = [
 ]
 
 function App() {
-  const [products, setProducts] = useState(Products)
-
+  const [products, setProducts] = useState<Product[]>([])
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>()
+
+  useEffect(() => {
+    async function fetchData() {
+      const _products = await getAllProducts()
+      setProducts(_products)
+    }
+
+    fetchData()
+  }, [])
 
   const handleProductSubmit = (product: ProductCreator) => {
     setProducts([

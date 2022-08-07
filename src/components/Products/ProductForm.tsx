@@ -6,7 +6,7 @@ import Input from '../../sharedComponents/Input'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
 
 declare interface InitialFormState {
-  id?: number
+  _id?: string
   name: string
   price: string
   stock: string
@@ -26,7 +26,7 @@ declare interface ProductFormProps {
 function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
   const initialFormState: InitialFormState = formProps
     ? {
-        id: formProps.id,
+        _id: formProps._id,
         name: formProps.name,
         price: String(formProps.price),
         stock: String(formProps.stock)
@@ -54,7 +54,7 @@ function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
 
   const updateProduct = (product: InitialFormState) => {
     const productDTO = {
-      id: Number(product.id),
+      _id: String(product._id),
       name: String(product.name),
       price: parseFloat(product.price),
       stock: Number(product.stock)
@@ -74,7 +74,7 @@ function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
   }
 
   const handleFormSubmit = () => {
-    form.id ? updateProduct(form) : createProduct(form)
+    form._id ? updateProduct(form) : createProduct(form)
 
     setForm(initialFormState)
   }
@@ -111,7 +111,7 @@ function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
         required
       />
       <Button
-        label={form.id ? 'Update' : 'Submit'}
+        label={form._id ? 'Update' : 'Submit'}
         size={'small'}
         color={'primary'}
         variant={'solid'}

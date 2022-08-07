@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { getAllProducts } from '../../services/Procts.services'
+import { getAllProducts } from '../../services/Products.services'
 import Container from '../../sharedComponents/Container'
 import Table, { TableHeader } from '../../sharedComponents/Table'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
@@ -35,7 +35,7 @@ function App() {
     setProducts([
       ...products,
       {
-        id: products.length + 1,
+        _id: String(products.length + 1),
         ...product
       }
     ])
@@ -44,7 +44,7 @@ function App() {
   const handleProductUpdate = (newProduct: Product) => {
     setProducts(
       products.map((product) =>
-        product.id === newProduct.id ? newProduct : product
+        product._id === newProduct._id ? newProduct : product
       )
     )
 
@@ -60,7 +60,7 @@ function App() {
   }
 
   const productDelete = (productProps: Product) => {
-    setProducts(products.filter((product) => product.id !== productProps.id))
+    setProducts(products.filter((product) => product._id !== productProps._id))
   }
 
   const handleProductDelete = (product: Product) => {

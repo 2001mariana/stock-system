@@ -50,7 +50,7 @@ const Table = ({
                 item !== '$original' ? (
                   <>
                     <td
-                      key={row.$original.id + i}
+                      key={row.$original._id + i}
                       className={indexedHeaders[item].right ? 'right' : ''}
                     >
                       {row[item]}
@@ -62,7 +62,9 @@ const Table = ({
                 <td className="actions right">
                   {onViewDetail && (
                     <Button
-                      onClick={() => onViewDetail && onViewDetail(row)}
+                      onClick={() =>
+                        onViewDetail && onViewDetail(row.$original)
+                      }
                       icon={mdiEye}
                       size="small-xxx"
                       variant="outlined"
@@ -70,7 +72,7 @@ const Table = ({
                   )}
                   {onEdit && (
                     <Button
-                      onClick={() => onEdit && onEdit(row)}
+                      onClick={() => onEdit && onEdit(row.$original)}
                       icon={mdiPencil}
                       size="small-xxx"
                       variant="outlined"
@@ -78,7 +80,7 @@ const Table = ({
                   )}
                   {onDelete && (
                     <Button
-                      onClick={() => onDelete && onDelete(row)}
+                      onClick={() => onDelete && onDelete(row.$original)}
                       variant="outlined"
                       icon={mdiDelete}
                       size="small-xxx"

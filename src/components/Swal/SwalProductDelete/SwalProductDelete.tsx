@@ -3,7 +3,7 @@ import { Product } from '../../../sharedComponents/Table/Table.mockData'
 
 interface SwalProductDeleteProps {
   product: Product
-  productDelete: (product: Product) => void
+  productDelete: (id: string) => Promise<void>
 }
 
 function SwalProductDelete({ product, productDelete }: SwalProductDeleteProps) {
@@ -17,8 +17,8 @@ function SwalProductDelete({ product, productDelete }: SwalProductDeleteProps) {
     confirmButtonText: `Yes, delete ${product.name}!`
   }).then((result) => {
     if (result.isConfirmed) {
-      productDelete(product)
-      Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
+      productDelete(product._id)
+      // Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
     }
   })
 }

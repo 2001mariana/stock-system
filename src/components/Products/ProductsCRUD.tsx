@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import Swal from 'sweetalert2'
 import {
   createSingleProduct,
   deleteSingleProduct,
-  getAllProducts,
   updateSingleProduct
 } from '../../services/Products.services'
 import Table, { TableHeader } from '../../sharedComponents/Table'
@@ -19,13 +20,16 @@ const headers: TableHeader[] = [
   { key: 'stock', value: 'Available Stock', right: true }
 ]
 
-const ProductsCrud = () => {
-  const [products, setProducts] = useState<Product[]>([])
+declare interface ProductsCRUDProps {
+  products: Product[]
+}
+const ProductsCrud = ({ products }: ProductsCRUDProps) => {
+  //const [products, setProducts] = useState<Product[]>([])
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>()
 
   async function fetchData() {
-    const _products = await getAllProducts()
-    setProducts(_products)
+    //const _products = await getAllProducts()
+    //setProducts(_products)
   }
 
   useEffect(() => {
@@ -95,4 +99,8 @@ const ProductsCrud = () => {
   )
 }
 
-export default ProductsCrud
+const mapStateToProps = (state: any) => ({
+  products: state.products
+})
+
+export default connect(mapStateToProps)(ProductsCrud)

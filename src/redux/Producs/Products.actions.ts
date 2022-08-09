@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { Action } from '..'
 import { getAllProducts } from '../../services/Products.services'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
-import { Action } from './Products.reducer'
 
 export const getProducts = () => async (dispatch: any) => {
   const products = await getAllProducts()

@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { Action } from '..'
+import { Action, Thunk } from '..'
 import { getAllProducts } from '../../services/Products.services'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
 
-export const getProducts = () => async (dispatch: any) => {
+export const getProducts = (): Thunk<Product[]> => async (dispatch) => {
   const products = await getAllProducts()
   dispatch({
     type: 'FETCH_PRODUCTS',

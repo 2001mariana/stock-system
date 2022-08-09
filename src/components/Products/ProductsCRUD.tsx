@@ -1,12 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
 import Swal from 'sweetalert2'
-import {
-  createSingleProduct,
-  deleteSingleProduct,
-  updateSingleProduct
-} from '../../services/Products.services'
+
+import { getProducts } from '../../redux/Producs/Products.actions'
+import { deleteSingleProduct } from '../../services/Products.services'
+import { createSingleProduct } from '../../services/Products.services'
+import { updateSingleProduct } from '../../services/Products.services'
 import Table, { TableHeader } from '../../sharedComponents/Table'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
 import SwalProductDelete from '../Swal/SwalProductDelete'
@@ -24,12 +26,13 @@ declare interface ProductsCRUDProps {
   products: Product[]
 }
 const ProductsCrud = ({ products }: ProductsCRUDProps) => {
+  const dispatch = useDispatch()
   //const [products, setProducts] = useState<Product[]>([])
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>()
 
   async function fetchData() {
-    //const _products = await getAllProducts()
-    //setProducts(_products)
+    // @ts-ignore
+    dispatch(getProducts())
   }
 
   useEffect(() => {

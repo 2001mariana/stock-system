@@ -1,5 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { getAllProducts } from '../../services/Products.services'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
 import { Action } from './Products.reducer'
+
+export const getProducts = () => async (dispatch: any) => {
+  const products = await getAllProducts()
+  dispatch({
+    type: 'FETCH_PRODUCTS',
+    payload: products
+  })
+}
 
 export const insertNewProduct = (): Action<Product> => {
   return {

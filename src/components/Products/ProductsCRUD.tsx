@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
 import Swal from 'sweetalert2'
-import {
-  createSingleProduct,
-  deleteSingleProduct,
-  updateSingleProduct
-} from '../../services/Products.services'
+
+import { insertNewProduct } from '../../redux/Producs/Products.actions'
+import { deleteSingleProduct } from '../../services/Products.services'
+import { updateSingleProduct } from '../../services/Products.services'
 import Table, { TableHeader } from '../../sharedComponents/Table'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
 import SwalProductDelete from '../Swal/SwalProductDelete'
@@ -24,6 +24,7 @@ declare interface ProductsCRUDProps {
   products: Product[]
 }
 const ProductsCrud = ({ products }: ProductsCRUDProps) => {
+  const dispatch = useDispatch()
   //const [products, setProducts] = useState<Product[]>([])
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>()
 
@@ -38,7 +39,7 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
 
   const handleProductSubmit = async (product: ProductCreator) => {
     try {
-      await createSingleProduct(product)
+      dispatch(insertNewProduct(product))
       fetchData()
     } catch (err) {
       console.log(err)

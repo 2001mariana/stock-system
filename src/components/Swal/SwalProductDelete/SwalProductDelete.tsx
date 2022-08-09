@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2'
+
 import { Product } from '../../../sharedComponents/Table/Table.mockData'
 
 interface SwalProductDeleteProps {
@@ -15,12 +16,7 @@ function SwalProductDelete({ product, productDelete }: SwalProductDeleteProps) {
     confirmButtonColor: '#d33',
     cancelButtonColor: '#d04ed6',
     confirmButtonText: `Yes, delete ${product.name}!`
-  }).then((result) => {
-    if (result.isConfirmed) {
-      productDelete(product._id)
-      // Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
-    }
-  })
+  }).then(({ value }) => value && productDelete(product._id))
 }
 
 export default SwalProductDelete

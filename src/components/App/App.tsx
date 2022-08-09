@@ -1,16 +1,18 @@
-import Container from '../../sharedComponents/Container'
-import Header from '../Header/Header'
-import ProductsCrud from '../Products/ProductsCRUD'
+import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+
+import HomeView from '../../views/HomeView'
 
 import './App.css'
 
 function App() {
   return (
     <div className="App">
-      <Header title="Stock System" />
-      <Container>
-        <ProductsCrud />
-      </Container>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   )
 }

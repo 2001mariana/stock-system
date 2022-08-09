@@ -1,14 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
 import Swal from 'sweetalert2'
 
-import { getProducts } from '../../redux/Producs/Products.actions'
-import { deleteSingleProduct } from '../../services/Products.services'
+import { RootState } from '../../redux'
+import * as ProductsAction from '../../redux/Producs/Products.actions'
 import { createSingleProduct } from '../../services/Products.services'
-import { updateSingleProduct } from '../../services/Products.services'
 import Table, { TableHeader } from '../../sharedComponents/Table'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
 import SwalProductDelete from '../Swal/SwalProductDelete'
@@ -32,11 +30,8 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
 
   async function fetchData() {
     try {
-      console.log('started')
       // @ts-ignore
-      await dispatch(getProducts())
-      Swal.fire('Uhu!', 'Fetch done', 'success')
-      console.log('done')
+      await dispatch(ProductsAction.getProducts())
     } catch (err) {
       console.log(err)
     }
@@ -49,7 +44,6 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
   const handleProductSubmit = async (product: ProductCreator) => {
     try {
       await createSingleProduct(product)
-      fetchData()
     } catch (err) {
       console.log(err)
       //Swal.fire('Oops!', err.message, 'error')
@@ -58,9 +52,9 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
 
   const handleProductUpdate = async (newProduct: Product) => {
     try {
-      await updateSingleProduct(newProduct)
+      // @ts-ignore
+      await dispatch(ProductsAction.updateProduct(newProduct))
       setUpdatingProduct(undefined)
-      fetchData()
     } catch (err) {
       console.log(err)
       //Swal.fire('Oops!', err.message, 'error')
@@ -77,8 +71,8 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
 
   const productDelete = async (id: string) => {
     try {
-      await deleteSingleProduct(id)
-      fetchData()
+      // @ts-ignore
+      await dispatch(ProductsAction.deleteProduct(id))
       Swal.fire('Uhul!', 'Product successfully deleted', 'success')
     } catch (err) {
       console.log(err)
@@ -109,7 +103,7 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
   )
 }
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: RootState) => ({
   products: state.products
 })
 

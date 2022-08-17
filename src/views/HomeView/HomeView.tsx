@@ -1,6 +1,6 @@
-import Header from '../components/Header'
-import ProductsCRUD from '../components/Products/ProductsCRUD'
-import Container from '../sharedComponents/Container'
+import Header from '../../components/Header'
+import ProductsCRUD from '../../components/Products/ProductsCRUD'
+import Container from '../../sharedComponents/Container'
 
 const HomeView = () => {
   return (

@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import { BrowserRouter } from 'react-router-dom'
 
-import HomeView from '../../views/HomeView'
+import HomeView from '../../views/HomeView/HomeView'
+import NotFoundView from '../../views/NotFoundView/NotFoundView'
 
 import './App.css'
 
@@ -11,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomeView />} />
+          <Route path="*" element={<NotFoundView />} />
         </Routes>
       </BrowserRouter>
     </div>

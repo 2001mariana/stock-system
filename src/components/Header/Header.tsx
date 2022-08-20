@@ -14,7 +14,7 @@ const Header = ({ title, firstProduct }: HeaderProps) => {
   return (
     <header className="Header">
       <h1>{title}</h1>
-      <span>{firstProduct.name}</span>
+      <span>{firstProduct?.name}</span>
     </header>
   )
 }

@@ -19,6 +19,7 @@ const LoginForm = () => {
     try {
       // @ts-ignore
       await dispatch(login({ user: form.user, pass: form.pass }))
+      <Navi
     } catch (error) {
       Swal.fire('Error', 'It is not possible to log in.', 'error')
     }

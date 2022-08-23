@@ -18,7 +18,8 @@ const LoginForm = () => {
   const handleLogin = async () => {
     try {
       // @ts-ignore
-      await dispatch(login({ user: form.user, pass: form.pass }))
+      await dispatch(login({ user: form.user, pass: form.pass })),
+        useNavigate('../')
     } catch (error) {
       Swal.fire('Error', 'It is not possible to log in.', 'error')
     }

@@ -6,7 +6,7 @@ import { login } from '../../redux/Authentication/Authentication.actions'
 import Form from '../../sharedComponents/Form'
 import Input from '../../sharedComponents/Input'
 import Button from '../../sharedComponents/Button'
-import { useNavigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 
 const LoginForm = () => {
   const dispatch = useDispatch()
@@ -18,7 +18,8 @@ const LoginForm = () => {
   const handleLogin = async () => {
     try {
       // @ts-ignore
-      await dispatch(login({ user: form.user, pass: form.pass }))
+      await dispatch(login({ user: form.user, pass: form.pass })),
+        (<Navigate to={'/'} />)
     } catch (error) {
       Swal.fire('Error', 'It is not possible to log in.', 'error')
     }

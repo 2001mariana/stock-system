@@ -2,10 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { RootState } from '../../redux'
+import { Product } from '../../sharedComponents/Table/Table.mockData'
+
 import './Header.scss'
 
 interface HeaderProps {
-  title: string
+  title: StringConstructor
 }
 
 const Header = ({ title }: HeaderProps) => {

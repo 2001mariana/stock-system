@@ -5,18 +5,17 @@
       box-shadow: 0 3px 6px rgba(#000, .1);
       border-collapse: collapse;
       background-color: #FFFFFF;
-      margin: 18px auto;
     }
 
     table.Table thead {
       background-color: var(--table-header-bg-color);
-      
+      padding: auto;
     }
 
     table.Table thead tr th {
         color: rgba(#fff, .8);
         text-align: left;
-        padding: 14px 10px;
+        padding: 7px 10px;
         font-size: .8em;
         font-weight: 400;
         text-transform: uppercase;

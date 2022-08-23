@@ -4,6 +4,7 @@ import Button from '../../sharedComponents/Button'
 import Form from '../../sharedComponents/Form'
 import Input from '../../sharedComponents/Input'
 import { Product } from '../../sharedComponents/Table/Table.mockData'
+import withPermission from '../../utils/HOC/withPermission'
 
 declare interface InitialFormState {
   _id?: string
@@ -120,4 +121,4 @@ function ProductForm({ onSubmit, formProps, onUpdate }: ProductFormProps) {
   )
 }
 
-export default ProductForm
+export default withPermission(['customer', 'admin'])(ProductForm)

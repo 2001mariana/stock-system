@@ -1,0 +1,48 @@
+@use '../../assets/styles/mixins/mixins';
+
+.NotFoundView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--NotFoundView-bg-color);
+
+    &__link {
+        color: var(--NotFoundView-link-color);
+        text-decoration: none;
+        margin-top: 25px;
+    }
+
+    h1, h2 {
+      color: var(--NotFoundView-color);
+    }
+
+    h1 {
+      font-weight: 900;
+    }
+
+    h3 {
+      background-color: var(--NotFoundView-link-bg-color);
+      padding: 10px;
+      border-radius: 9px;
+    }
+
+    h3:hover {
+      box-shadow: rgba(240, 46, 170, 0.4) 0px 5px, rgba(240, 46, 170, 0.3) 0px 10px, rgba(240, 46, 170, 0.2) 0px 15px, rgba(240, 46, 170, 0.1) 0px 20px, rgba(240, 46, 170, 0.05) 0px 25px;
+      color: ;
+      transition: box-shadow 0.5s, color 0.5s;
+    }
+}
+
+  
+  /* NotFoundView Themes */
+  @include mixins.light-purple {
+    --NotFoundView-bg-color: #4682B4;
+    --NotFoundView-color: #FFFFFF;
+    --NotFoundView-link-color: #db87e0;
+    --NotFoundView-link-bg-color: #FFFFFF;
+    --NotFoundView-link-color-hover: #ff00bf;
+  }
+  

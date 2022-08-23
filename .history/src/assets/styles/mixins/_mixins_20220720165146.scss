@@ -1,0 +1,19 @@
+
+@mixin font-size($size-px) {
+    $one-px-in-rem: 0.0625rem;
+    font-size: $size-px * $one-px-in-rem;
+  }
+  
+
+  @mixin light {
+    :root {
+      @content;
+    }
+  }
+  
+  @mixin dark {
+    .dark:root {
+      @content;
+    }
+  }
+  

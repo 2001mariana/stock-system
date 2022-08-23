@@ -1,5 +1,6 @@
 import Icon from '@mdi/react'
 import classNames from 'classnames'
+import React from 'react'
 import { ButtonHTMLAttributes } from 'react'
 
 import './Button.scss'

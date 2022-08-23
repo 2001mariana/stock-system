@@ -1,0 +1,10 @@
+.NotFoundView {
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    textAlign: 'center';
+    flexDirection: 'column';
+    minHeight: '100vh';
+    border: '1px solid red';
+    ackgroundColor: '#F8F8FF';
+}

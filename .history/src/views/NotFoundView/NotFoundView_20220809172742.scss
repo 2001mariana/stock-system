@@ -1,0 +1,39 @@
+.NotFoundView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F8F8FF;
+
+    &__link {
+        color: #09f;
+        text-decoration: none;
+        font-size: 12;
+        margin-top: 10;
+    }
+
+    h1 {
+        color: #09f;
+        font-weight: 900;
+    }
+}
+
+  
+  /* Header Themes */
+  @include mixins.light-purple {
+    --header-bg-color: #d04ed6;
+    --header-color: #ffffff;
+    --header-dropdown-item-color: #d04ed6;
+    --header-bg-dropdown-color: #ffffff;
+    --header-dropdown-item-focus-shadow-border-color: #6019773d;
+  }
+  
+//   @include mixins.light-pink {
+//     --header-bg-color: #ff00bf;
+//     --header-color: #ffffff;
+//     --header-dropdown-item-color: #ff00bf;
+//     --header-bg-dropdown-color: #ffffff;
+//     --header-dropdown-item-focus-shadow-border-color: #6019773d;
+//   }

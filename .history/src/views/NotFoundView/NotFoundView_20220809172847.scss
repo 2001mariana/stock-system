@@ -1,0 +1,41 @@
+@use '../../assets/styles/mixins/mixins';
+
+.NotFoundView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--);
+
+    &__link {
+        color: #09f;
+        text-decoration: none;
+        font-size: 12;
+        margin-top: 10;
+    }
+
+    h1 {
+        color: #09f;
+        font-weight: 900;
+    }
+}
+
+  
+  /* NotFoundView Themes */
+  @include mixins.light-purple {
+    --NotFoundView-bg-color: #F8F8FF;
+    --NotFoundView-color: #ffffff;
+    --NotFoundView-dropdown-item-color: #d04ed6;
+    --NotFoundView-bg-dropdown-color: #ffffff;
+    --NotFoundView-dropdown-item-focus-shadow-border-color: #6019773d;
+  }
+  
+//   @include mixins.light-pink {
+//     --NotFoundView-bg-color: #ff00bf;
+//     --NotFoundView-color: #ffffff;
+//     --NotFoundView-dropdown-item-color: #ff00bf;
+//     --NotFoundView-bg-dropdown-color: #ffffff;
+//     --NotFoundView-dropdown-item-focus-shadow-border-color: #6019773d;
+//   }

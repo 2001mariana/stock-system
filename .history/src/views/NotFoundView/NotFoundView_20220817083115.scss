@@ -1,0 +1,54 @@
+@use '../../assets/styles/mixins/mixins';
+
+.NotFoundView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--NotFoundView-bg-color);
+
+    &__link {
+        color: var(--NotFoundView-link-color);
+        text-decoration: none;
+        margin-top: 25px;
+    }
+
+    h3 {
+      background-color: var(--NotFoundView-link-bg-color);
+      padding: 8px;
+      border-radius: 6px;
+    }
+
+    h3:hover {
+      background-color: var(--NotFoundView-link-bg-color-hover);
+      color: (var(--))
+      transition: background-color 0.25s, color 0.25s;
+    }
+
+    h1, h2 {
+        color: var(--NotFoundView-color);
+    }
+
+    h1 {
+        font-weight: 900;
+    }
+}
+
+  
+  /* NotFoundView Themes */
+  @include mixins.light-purple {
+    --NotFoundView-bg-color: 	#D8BFD8;
+    --NotFoundView-color: #d04ed6;
+    --NotFoundView-link-color: #db87e0;
+    --NotFoundView-link-bg-color: #FFFFFF;
+    --NotFoundView-link-bg-color-hover: #db87e0;
+    --NotFoundView-link-color-hover: #FFFFFF;
+  }
+  
+//   @include mixins.light-pink {
+//     --NotFoundView-bg-color: 	#D8BFD8;
+//     --NotFoundView-color: #ff00bf;
+//  --NotFoundView-link-color: #d04ed6;
+//   }

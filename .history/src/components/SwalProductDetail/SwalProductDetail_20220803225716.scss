@@ -1,0 +1,23 @@
+@use '../../assets/styles/mixins/mixins';
+
+
+.swal2-styled.swal2-confirm {
+    background-color: var(--swal-button-bg-color);
+}
+
+  /* SwalProductDetail Themes */
+  @include mixins.light-purple {
+    --swal-button-bg-color: #d04ed6;
+  }
+
+
+  @include mixins.light-pink {
+    --swal-button-bg-color: #ff00bf;
+  }
+//   @include mixins.light-pink {
+//     --input-placeholder-color: #ccc;
+//     --input-label-color: #222;
+//     --input-label-border-color: #ff00bf;
+//     --input-label-border-focus-color: #ff00bf;
+//     --input-describe-color: #ff00bf;
+//   }

@@ -1,0 +1,40 @@
+@use '../../assets/styles/mixins/mixins';
+
+.NotFoundView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--NotFoundView-bg-color);
+
+    &__link {
+        color: var(--NotFoundView-link-color);
+        text-decoration: none;
+        font-size: 12;
+        margin-top: 10px;
+    }
+
+    h1, p {
+        color: var(--NotFoundView-color);
+    }
+
+    h1 {
+        font-weight: 900;
+    }
+}
+
+  
+  /* NotFoundView Themes */
+  @include mixins.light-purple {
+    --NotFoundView-bg-color: #F8F8FF;
+    --NotFoundView-color: #d04ed6;
+    --NotFoundView-link-color: #db87e0;
+  }
+  
+//   @include mixins.light-pink {
+//     --NotFoundView-bg-color: #F8F8FF;
+//     --NotFoundView-color: #ff00bf;
+//  --NotFoundView-link-color: #d04ed6;
+//   }

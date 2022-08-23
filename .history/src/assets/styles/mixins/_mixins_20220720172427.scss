@@ -1,0 +1,24 @@
+/* Themes */
+@mixin light {
+  :root {
+    @content;
+  }
+}
+
+@mixin light-purple {
+  :root {
+    @content;
+  }
+}
+
+@mixin light-purple {
+  :root {
+    @content;
+  }
+}
+
+@mixin dark {
+  .dark:root {
+    @content;
+  }
+}

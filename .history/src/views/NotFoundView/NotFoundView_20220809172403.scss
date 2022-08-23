@@ -1,0 +1,22 @@
+.NotFoundView {
+    display: 'flex';
+    justify-content: 'center';
+    align-items: 'center';
+    text-align: 'center';
+    flex-direction: 'column';
+    min-height: '100vh';
+    border: '1px solid red';
+    background-color: '#F8F8FF';
+
+    &__link {
+        color: '#09f';
+        textDecoration: 'none';
+        font-size: 12;
+        margin-top: 10;
+    }
+
+    h1 {
+        color: '#09f';
+        font-weight: 900;
+    }
+}

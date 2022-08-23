@@ -1,0 +1,23 @@
+@use '../../../'
+
+
+.swal2-styled.swal2-confirm {
+    background-color: var(--swal-button-bg-color);
+}
+
+.swal2-icon.swal2-info {
+  border-color: var(--swal-icon-color);
+  color: var(--swal-icon-color);
+}
+
+  /* SwalProductDetail Themes */
+  @include mixins.light-purple {
+    --swal-button-bg-color: #d04ed6;
+    --swal-icon-color: #d04ed6;
+  }
+
+
+//   @include mixins.light-pink {
+//     --swal-button-bg-color: #ff00bf;
+//    --swal-icon-color: #ff00bf;
+//   }

@@ -1,0 +1,44 @@
+@use '../../assets/styles/mixins/mixins';
+
+.Input {
+    height: 45px;
+  }
+  
+  .Input label {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .Input label span {
+    text-transform: uppercase;
+    color: #09f;
+    font-size: .8em;
+    height: 15px;
+    letter-spacing: .75px;
+  }
+  
+  .Input label input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0; /* fix edge's default border-radius */
+    height: 30px;
+    color: var(--);
+  }
+  
+  .Input label input:focus {
+    border-color: #09f;
+    outline: none;
+  }
+  
+  .Input label input::placeholder {
+    color: var(--input-placeholder-color);
+  }
+
+  @include mixins.light-purple {
+    --input-placeholder-color: #ccc;
+    --input-label-color: #222;
+    --input-label-border-color: #222;
+    --input-label-focus-color: #242224;
+    --input-bottom-border-color: #ffffff;
+    --input-bg-dropdown-color: #ffffff;
+  }

@@ -1,0 +1,10 @@
+.NotFoundView {
+    display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+        minHeight: '100vh',
+        border: '1px solid red',
+        backgroundColor: '#F8F8FF'
+}

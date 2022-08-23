@@ -1,0 +1,7 @@
+.App {
+  color: #61dafb;
+
+  &__test-color {
+    height: 200px;
+  }
+}

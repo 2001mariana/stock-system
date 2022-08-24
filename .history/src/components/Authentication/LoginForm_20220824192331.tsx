@@ -2,6 +2,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+
+mport { useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2'
 
 import { login } from '../../redux/Authentication/Authentication.actions'
@@ -22,7 +24,7 @@ const LoginForm = () => {
     try {
       // @ts-ignore
       await dispatch(login({ user: form.user, pass: form.pass }))
-      navigate('/')
+      navigate
     } catch (error) {
       Swal.fire('Error', 'It is not possible to log in.', 'error')
     }

@@ -7,8 +7,8 @@ import thunk, { ThunkAction } from 'redux-thunk'
 import { applyMiddleware, combineReducers, compose } from 'redux'
 import { legacy_createStore as createStore } from 'redux'
 
-import AuthenticationReducer from './Authentication/Authentication.reducer'
 import ProductsReducer from './Producs/Products.reducer'
+import AuthenticationReducer from './Authentication/Authentication.reducer'
 
 const reducers = combineReducers({
   products: ProductsReducer,
@@ -28,9 +28,13 @@ const enhancers = [
   applyMiddleware(thunk),
   // @ts-ignore
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-].filter((e) => e)
+].filter(e => e)
 
-const store = createStore(persistedReducer, compose(...enhancers))
+const store = createStore(
+  persistedReducer,
+  compose(...enhancers)
+)
+
 
 const persistor = persistStore(store)
 

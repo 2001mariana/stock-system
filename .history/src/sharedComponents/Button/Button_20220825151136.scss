@@ -90,11 +90,9 @@ button.Button--solid-primary {
   }
 }
 
-
-/* Solid Secondary */
 button.Button--solid-secondary {
-  background-color: #FFFFFF;
-  color: var(--button-solid-primary-bg-color);
+  background-color: var(--button-solid-primary-color);
+  color:  var(--button-solid-primary-bg-color);
 
   &:disabled {
     background-color: var(--button-solid-primary-disabled-bg-color);
@@ -107,7 +105,6 @@ button.Button--solid-secondary {
 
   &:hover {
     background-color: var(--button-solid-primary-hover-bg-color);
-    color: #FFFFFF;
   }
 }
 

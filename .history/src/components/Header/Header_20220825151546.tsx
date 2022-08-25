@@ -47,12 +47,16 @@ const Header = ({ title, profile }: HeaderProps) => {
           size={'small-xxx'}
           onClick={handleLoginLogout}
         />
+        {/* <span onClick={handleLoginLogout}>
+          {isLoggedIn ? 'Logout' : 'Login'}
+        </span> */}
       </div>
     </header>
   )
 }
 
 const mapStateToProps = (state: RootState) => ({
+  firstProduct: state.products[0],
   profile: state.authentication.profile
 })
 

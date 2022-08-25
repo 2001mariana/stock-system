@@ -3,10 +3,10 @@
 header.Header {
     align-items: center;
     background: var(--header-bg-color);  /* fallback for old browsers */
-    color: #FFFFFF;
-    height: 80px;
+   color: #FFFFFF;
+    height: 60px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0, .2);
@@ -15,9 +15,7 @@ header.Header {
             font-size: 1.4em;
     }
 
-    span {
-      cursor: pointer;
-    }
+    
   }
   
   header.Header__dropdown {

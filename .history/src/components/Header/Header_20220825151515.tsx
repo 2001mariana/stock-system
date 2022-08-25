@@ -26,7 +26,7 @@ const Header = ({ title, profile }: HeaderProps) => {
       title: 'Are you sure?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#d04ed6',
+      confirmButtonColor: '#09f',
       cancelButtonColor: '#d33'
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     }).then(({ value }: any) => value && dispatch(logout()))
@@ -45,14 +45,17 @@ const Header = ({ title, profile }: HeaderProps) => {
           color="secondary"
           label={isLoggedIn ? 'Logout' : 'Login'}
           size={'small-xxx'}
-          onClick={handleLoginLogout}
         />
+        {/* <span onClick={handleLoginLogout}>
+          {isLoggedIn ? 'Logout' : 'Login'}
+        </span> */}
       </div>
     </header>
   )
 }
 
 const mapStateToProps = (state: RootState) => ({
+  firstProduct: state.products[0],
   profile: state.authentication.profile
 })
 

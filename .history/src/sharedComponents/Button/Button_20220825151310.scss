@@ -105,10 +105,9 @@ button.Button--solid-secondary {
     box-shadow: 0 0 0 3.5px var(--button-solid-primary-focus-box-shadow-color);
   }
 
-  &:hover {
-    background-color: var(--button-solid-primary-hover-bg-color);
-    color: #FFFFFF;
-  }
+  // &:hover {
+  //   background-color: var(--button-solid-primary-hover-bg-color);
+  // }
 }
 
 

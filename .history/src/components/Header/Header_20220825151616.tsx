@@ -53,6 +53,7 @@ const Header = ({ title, profile }: HeaderProps) => {
 }
 
 const mapStateToProps = (state: RootState) => ({
+  firstProduct: state.products[0],
   profile: state.authentication.profile
 })
 

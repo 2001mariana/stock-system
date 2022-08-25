@@ -8,7 +8,7 @@ import './Button.scss'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   label?: string
-  color?: 'primary' | 'secondary' | 'danger'
+  color?: 'primary'  | 'danger'
   variant?: 'solid' | 'outlined' | 'text'
   size?: 'small-xxx' | 'small-xx' | 'small' | 'medium' | 'large'
   icon?: string

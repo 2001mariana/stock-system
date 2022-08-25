@@ -3,10 +3,11 @@
 header.Header {
     align-items: center;
     background: var(--header-bg-color);  /* fallback for old browsers */
-    color: #FFFFFF;
+   color: #FFFFFF;
     height: 80px;
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0, .2);

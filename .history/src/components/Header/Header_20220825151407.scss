@@ -5,8 +5,9 @@ header.Header {
     background: var(--header-bg-color);  /* fallback for old browsers */
     color: #FFFFFF;
     height: 80px;
-    display: flex;
-    justify-content: space-around;
+    display: flex;=
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     box-shadow: 0 3px 6px rgba(0,0,0, .2);

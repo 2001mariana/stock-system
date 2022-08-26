@@ -115,14 +115,13 @@ const Table = ({
         </tbody>
       </table>
       <div className="Table__attribute">
-        {isLoggedUser === 'true' && (
-          <Button
-            label="new product"
-            size={'small-xxx'}
-            color={'secondary'}
-            onClick={() => navigate('/')}
-          />
-        )}
+      isLoggedUser === 'true' && 
+        <Button
+          label="new product"
+          size={'small-xxx'}
+          color={'secondary'}
+          onClick={() => navigate('/')}
+        />
 
         <div className="Table__pagination">
           {Array(totalPages)

@@ -21,7 +21,11 @@ const Header = ({ title, profile }: HeaderProps) => {
 
   const isLoggedIn = !!profile?._id
 
-  window.sessionStorage.setItem('isLogged', `${isLoggedIn}`)
+  const car = isLoggedIn
+
+  window.sessionStorage.setItem('')
+
+  console.log(isLoggedIn)
 
   const askToLogout = () => {
     Swal.fire({
@@ -30,10 +34,8 @@ const Header = ({ title, profile }: HeaderProps) => {
       showCancelButton: true,
       confirmButtonColor: '#d04ed6',
       cancelButtonColor: '#d33'
-    }).then(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ({ value }: any) => value && dispatch(logout())
-    )
+    }).then(({ value }: any) => value && dispatch(logout()))
   }
 
   const handleLoginLogout = () => {

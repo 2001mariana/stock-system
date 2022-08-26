@@ -19,9 +19,8 @@ const Header = ({ title, profile }: HeaderProps) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
-  const isLoggedIn = !!profile?._id
-
-  window.sessionStorage.setItem('isLogged', `${isLoggedIn}`)
+  export const isLoggedIn = !!profile?._id
+  console.log(isLoggedIn)
 
   const askToLogout = () => {
     Swal.fire({
@@ -30,10 +29,8 @@ const Header = ({ title, profile }: HeaderProps) => {
       showCancelButton: true,
       confirmButtonColor: '#d04ed6',
       cancelButtonColor: '#d33'
-    }).then(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ({ value }: any) => value && dispatch(logout())
-    )
+    }).then(({ value }: any) => value && dispatch(logout()))
   }
 
   const handleLoginLogout = () => {
@@ -60,4 +57,4 @@ const mapStateToProps = (state: RootState) => ({
   profile: state.authentication.profile
 })
 
-export default connect(mapStateToProps)(Header)
+export default connect(mapStateToProps){Header, isLoggedIn}

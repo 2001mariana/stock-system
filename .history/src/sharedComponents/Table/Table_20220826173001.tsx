@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mdiDelete, mdiEye, mdiPencil } from '@mdi/js'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import organizeData from '../../utils/organizeDataForTable'
@@ -41,12 +41,17 @@ const Table = ({
   const paginatedData = paginate(organizedData, _itemsPerPage, clickedPage)
   const totalPages = Math.ceil(organizedData.length / _itemsPerPage)
   const navigate = useNavigate()
-  const isLoggedUser = window.sessionStorage.getItem('isLogged')
+  const [isLoggedUser, setIsLoggedUser] = useState<boolean>(false)
 
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)
     seSelectedPage(`selected-${pageClicked}`)
   }
+
+  useEffect(() => {
+    window.sessionStorage.getItem('isLogged') === 'true' &&
+      setIsLoggedUser(true)
+  }, [window.sessionStorage.getItem('isLogged')])
 
   return (
     <>
@@ -58,7 +63,7 @@ const Table = ({
                 {header.value}
               </th>
             ))}
-            {enableActions && isLoggedUser === 'true' && (
+            {enableActions && isLoggedUser && (
               <th className="right">Actions</th>
             )}
           </tr>
@@ -79,7 +84,7 @@ const Table = ({
                     </>
                   ) : null
                 )}
-                {enableActions && isLoggedUser === 'true' && (
+                {enableActions && isLoggedUser && (
                   <td className="actions right">
                     {onViewDetail && (
                       <Button
@@ -115,7 +120,7 @@ const Table = ({
         </tbody>
       </table>
       <div className="Table__attribute">
-        {isLoggedUser === 'true' && (
+        {isLoggedUser && (
           <Button
             label="new product"
             size={'small-xxx'}

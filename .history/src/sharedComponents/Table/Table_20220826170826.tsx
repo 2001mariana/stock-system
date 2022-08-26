@@ -41,7 +41,7 @@ const Table = ({
   const paginatedData = paginate(organizedData, _itemsPerPage, clickedPage)
   const totalPages = Math.ceil(organizedData.length / _itemsPerPage)
   const navigate = useNavigate()
-  const isLoggedUser = window.sessionStorage.getItem('isLogged')
+  const isLoggedUser = !!window.sessionStorage.getItem('isLogged')
 
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)
@@ -58,7 +58,7 @@ const Table = ({
                 {header.value}
               </th>
             ))}
-            {enableActions && isLoggedUser === 'true' && (
+            {enableActions && isLoggedUser && (
               <th className="right">Actions</th>
             )}
           </tr>
@@ -79,7 +79,7 @@ const Table = ({
                     </>
                   ) : null
                 )}
-                {enableActions && isLoggedUser === 'true' && (
+                {enableActions && isLoggedUser  && (
                   <td className="actions right">
                     {onViewDetail && (
                       <Button
@@ -115,14 +115,12 @@ const Table = ({
         </tbody>
       </table>
       <div className="Table__attribute">
-        {isLoggedUser === 'true' && (
-          <Button
-            label="new product"
-            size={'small-xxx'}
-            color={'secondary'}
-            onClick={() => navigate('/')}
-          />
-        )}
+        <Button
+          label="new product"
+          size={'small-xxx'}
+          color={'secondary'}
+          onClick={() => navigate('/')}
+        />
 
         <div className="Table__pagination">
           {Array(totalPages)

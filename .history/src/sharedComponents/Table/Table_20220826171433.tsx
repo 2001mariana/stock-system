@@ -115,7 +115,7 @@ const Table = ({
         </tbody>
       </table>
       <div className="Table__attribute">
-        {isLoggedUser === 'true' && (
+        {isLoggedUser === 'true' ? (
           <Button
             label="new product"
             size={'small-xxx'}

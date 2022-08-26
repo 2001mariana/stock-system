@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mdiDelete, mdiEye, mdiPencil } from '@mdi/js'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
+import { User } from '../../services/Authentication.service'
 
 import organizeData from '../../utils/organizeDataForTable'
 import paginate from '../../utils/paginate'
@@ -43,6 +44,10 @@ const Table = ({
   const navigate = useNavigate()
   const isLoggedUser = window.sessionStorage.getItem('isLogged')
 
+  useEffect(() => {
+    console.log(isLoggedUser)
+  }, [isLoggedUser])
+
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)
     seSelectedPage(`selected-${pageClicked}`)
@@ -58,9 +63,7 @@ const Table = ({
                 {header.value}
               </th>
             ))}
-            {enableActions && isLoggedUser === 'true' && (
-              <th className="right">Actions</th>
-            )}
+            {enableActions && <th className="right">Actions</th>}
           </tr>
         </thead>
         <tbody>
@@ -79,7 +82,7 @@ const Table = ({
                     </>
                   ) : null
                 )}
-                {enableActions && isLoggedUser === 'true' && (
+                {enableActions && (
                   <td className="actions right">
                     {onViewDetail && (
                       <Button
@@ -115,14 +118,12 @@ const Table = ({
         </tbody>
       </table>
       <div className="Table__attribute">
-        {isLoggedUser === 'true' && (
-          <Button
-            label="new product"
-            size={'small-xxx'}
-            color={'secondary'}
-            onClick={() => navigate('/')}
-          />
-        )}
+        <Button
+          label="new product"
+          size={'small-xxx'}
+          color={'secondary'}
+          onClick={() => navigate('/')}
+        />
 
         <div className="Table__pagination">
           {Array(totalPages)

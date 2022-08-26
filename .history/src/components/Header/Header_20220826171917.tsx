@@ -30,9 +30,11 @@ const Header = ({ title, profile }: HeaderProps) => {
       showCancelButton: true,
       confirmButtonColor: '#d04ed6',
       cancelButtonColor: '#d33'
-    }).then(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ({ value }: any) => value && dispatch(logout())
+    }).then(
+      ({ value }: any) =>
+        value &&
+        dispatch(logout()
     )
   }
 

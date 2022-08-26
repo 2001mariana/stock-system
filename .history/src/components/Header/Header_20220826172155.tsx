@@ -33,6 +33,7 @@ const Header = ({ title, profile }: HeaderProps) => {
     }).then(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ({ value }: any) => value && dispatch(logout())
+      window.se
     )
   }
 

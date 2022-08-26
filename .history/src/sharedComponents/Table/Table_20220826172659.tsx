@@ -48,6 +48,8 @@ const Table = ({
     seSelectedPage(`selected-${pageClicked}`)
   }
 
+  useEffect
+
   return (
     <>
       <table className="Table">

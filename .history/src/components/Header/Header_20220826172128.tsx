@@ -31,6 +31,7 @@ const Header = ({ title, profile }: HeaderProps) => {
       confirmButtonColor: '#d04ed6',
       cancelButtonColor: '#d33'
     }).then(
+      && window.sessionStorage.removeItem('isLogged')
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       ({ value }: any) => value && dispatch(logout())
     )

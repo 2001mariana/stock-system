@@ -48,6 +48,8 @@ const Table = ({
     seSelectedPage(`selected-${pageClicked}`)
   }
 
+  
+
   return (
     <>
       <table className="Table">

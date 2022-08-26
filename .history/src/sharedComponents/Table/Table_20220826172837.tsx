@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mdiDelete, mdiEye, mdiPencil } from '@mdi/js'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 
 import organizeData from '../../utils/organizeDataForTable'
@@ -41,12 +41,16 @@ const Table = ({
   const paginatedData = paginate(organizedData, _itemsPerPage, clickedPage)
   const totalPages = Math.ceil(organizedData.length / _itemsPerPage)
   const navigate = useNavigate()
-  const isLoggedUser = window.sessionStorage.getItem('isLogged')
+  const [isLoggedUser, setIsLoggedUser] = useState('')
 
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)
     seSelectedPage(`selected-${pageClicked}`)
   }
+
+  useEffect(() => {
+    setIsLoggedUser(window.sessionStorage.getItem('isLogged'))
+  }, [window.sessionStorage.getItem('isLogged')])
 
   return (
     <>

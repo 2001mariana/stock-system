@@ -58,9 +58,7 @@ const Table = ({
                 {header.value}
               </th>
             ))}
-            {enableActions && isLoggedUser === 'true' && (
-              <th className="right">Actions</th>
-            )}
+            {enableActions && isLoggedIn && <th className="right">Actions</th>}
           </tr>
         </thead>
         <tbody>
@@ -79,7 +77,7 @@ const Table = ({
                     </>
                   ) : null
                 )}
-                {enableActions && isLoggedUser === 'true' && (
+                {enableActions && (
                   <td className="actions right">
                     {onViewDetail && (
                       <Button
@@ -115,14 +113,12 @@ const Table = ({
         </tbody>
       </table>
       <div className="Table__attribute">
-        {isLoggedUser === 'true' && (
-          <Button
-            label="new product"
-            size={'small-xxx'}
-            color={'secondary'}
-            onClick={() => navigate('/')}
-          />
-        )}
+        <Button
+          label="new product"
+          size={'small-xxx'}
+          color={'secondary'}
+          onClick={() => navigate('/')}
+        />
 
         <div className="Table__pagination">
           {Array(totalPages)

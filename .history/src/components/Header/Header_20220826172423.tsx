@@ -23,6 +23,10 @@ const Header = ({ title, profile }: HeaderProps) => {
 
   window.sessionStorage.setItem('isLogged', `${isLoggedIn}`)
 
+  const car = () => {
+    
+  }
+
   const askToLogout = () => {
     Swal.fire({
       title: 'Are you sure?',

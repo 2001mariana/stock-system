@@ -32,7 +32,9 @@ const Header = ({ title, profile }: HeaderProps) => {
       cancelButtonColor: '#d33'
     }).then(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ({ value }: any) => value && dispatch(logout())
+      ({ value }: any) =>
+        value &&
+        dispatch(logout() )
     )
   }
 

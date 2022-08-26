@@ -1,4 +1,3 @@
-import { ProductCreator } from '../models/ProductForm'
 import { Product } from '../sharedComponents/Table/Table.mockData'
 import http from '../utils/http'
 

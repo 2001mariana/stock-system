@@ -1,5 +1,4 @@
 import { Thunk } from '..'
-import { ProductCreator } from '../../models/ProductForm'
 import { updateSingleProduct } from '../../services/Products.services'
 import { createSingleProduct } from '../../services/Products.services'
 import { getAllProducts } from '../../services/Products.services'

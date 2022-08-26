@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { ProductCreator } from '../../models/ProductForm'
 
 import { RootState, ThunkDispatch } from '../../redux'
 import * as ProductsAction from '../../redux/Producs/Products.actions'

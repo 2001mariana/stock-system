@@ -3,7 +3,6 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { connect } from 'react-redux'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import Swal from 'sweetalert2'
 
 import { RootState, ThunkDispatch } from '../../redux'
@@ -27,9 +26,7 @@ declare interface ProductsCRUDProps {
 const ProductsCrud = ({ products }: ProductsCRUDProps) => {
   const [updatingProduct, setUpdatingProduct] = useState<Product | undefined>()
 
-  const params = useParams<{ id?: string }>()
-  const navigate = useNavigate()
-  const location = useLocation()
+  
 
   // @ts-ignore
   const dispatch: ThunkDispatch = useDispatch()
@@ -68,14 +65,6 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
   }
 
   useEffect(() => {
-    setUpdatingProduct(
-      params.id
-        ? products.find((product) => product._id === params.id)
-        : undefined
-    )
-  }, [params, products])
-
-  useEffect(() => {
     fetchData()
   }, [])
 
@@ -86,13 +75,7 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
         data={products}
         enableActions
         onDelete={handleProductDelete}
-        onEdit={(product) => {
-          navigate({
-            pathname: `/products/${product._id}`,
-            search: location.search
-          })
-        }}
-        //onEdit={setUpdatingProduct}
+        onEdit={setUpdatingProduct}
         onViewDetail={handleProductDetail}
         itemsPerPage={3}
       />

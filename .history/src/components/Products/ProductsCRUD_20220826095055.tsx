@@ -88,7 +88,7 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
         onDelete={handleProductDelete}
         onEdit={(product) => {
           navigate({
-            pathname: `/products/${product._id}`,
+            pathname: `products/${product._id}`,
             search: location.search
           })
         }}

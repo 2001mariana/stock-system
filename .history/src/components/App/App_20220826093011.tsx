@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<ProductsView />} />
-          <Route path="/products/:id" element={<ProductsView />} />
+          <Route path="/products/?:id" element={<ProductsView />} />
           <Route path="/login" element={<LoginView />} />
           <Route path="/profile" element={<ProfileView />} />
           <Route path="*" element={<NotFoundView />} />

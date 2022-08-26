@@ -9,7 +9,6 @@ import './NotFoundView.scss'
 const NotFoundView = () => {
   return (
     <div className="NotFoundView">
-      <h2>The page you tried to access does not exist!</h2>
       <div className="NotFoundView__animation">
         <Lottie animationData={NotFoundAnimation} loop={true} />
       </div>

@@ -16,12 +16,13 @@
     }
 
     &__animation div {
-      height: 260px;
+      border: 2px solid red;
+      height: 300px;
     }
 
     h2 {
       color: var(--NotFoundView-color);
-      margin-bottom: 30px;
+      margin: -;
     }
 
     h3 {

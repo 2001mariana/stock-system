@@ -6,7 +6,7 @@ import Container from '../../sharedComponents/Container'
 const ProductsView = () => {
   return (
     <>
-      <Header title="StockSystem - ML" />
+      <Header title="Stock" />
       <Container>
         <ProductsCRUD />
       </Container>

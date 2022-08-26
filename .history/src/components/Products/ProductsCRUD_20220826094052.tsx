@@ -68,14 +68,6 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
   }
 
   useEffect(() => {
-    setUpdatingProduct(
-      params.id
-        ? products.find((product) => product._id === params.id)
-        : undefined
-    )
-  }, [params, products])
-
-  useEffect(() => {
     fetchData()
   }, [])
 
@@ -86,13 +78,7 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
         data={products}
         enableActions
         onDelete={handleProductDelete}
-        onEdit={(product) => {
-          navigate({
-            pathname: `/products/${product._id}`,
-            search: location.search
-          })
-        }}
-        //onEdit={setUpdatingProduct}
+        onEdit={setUpdatingProduct}
         onViewDetail={handleProductDetail}
         itemsPerPage={3}
       />

@@ -86,12 +86,6 @@ const ProductsCrud = ({ products }: ProductsCRUDProps) => {
         data={products}
         enableActions
         onDelete={handleProductDelete}
-        onEdit={(product) => {
-          navigate({
-            pathname: `/products/${product._id}`,
-            search: location.search
-          })
-        }}
         //onEdit={setUpdatingProduct}
         onViewDetail={handleProductDetail}
         itemsPerPage={3}

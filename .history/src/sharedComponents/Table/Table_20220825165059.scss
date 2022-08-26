@@ -1,0 +1,96 @@
+@use '../../assets/styles/mixins/mixins';
+
+    table.Table {
+      width: 100%;
+      box-shadow: 0 3px 6px rgba(#000, .1);
+      border-collapse: collapse;
+      background-color: #FFFFFF;
+      margin: 18px auto;
+    }
+
+    table.Table thead {
+      background-color: var(--table-header-bg-color);
+      
+    }
+
+    table.Table thead tr th {
+        color: rgba(#fff, .8);
+        text-align: left;
+        padding: 14px 10px;
+        font-size: .8em;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: .75px;
+  
+        &.right {
+          text-align: right;
+        }
+    }
+
+  
+    table.Table tbody {
+      tr:hover {
+        background-color: rgba(#000, .05);
+      } 
+
+      tr td {
+          padding: 7px 10px;
+          color: var(--table-body-row-color);
+      }
+
+      tr td.right {
+        text-align: right;
+      }
+
+      td.actions button {
+          margin: 3px;
+    }
+  }
+
+  .Table__pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 7px;
+  
+    a {
+      width: 25px;
+      height: 25px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      color: #09f;
+      cursor: pointer;
+      border-radius: 5px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      text-decoration: none;
+      font-size: 12px;
+  
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background-color: #09f;
+        color: #fff;
+        border-color: #09f;
+        box-shadow: 0 3px 6px rgba(#000, .2);
+        transform: translateY(-3px);
+      }
+  
+      &:active {
+        color: #222;
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      } 
+    }
+  }
+
+
+  @include mixins.light-purple {
+    --table-header-bg-color: #d04ed6;
+    --table-body-row-color: #222;
+  }

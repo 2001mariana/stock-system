@@ -24,9 +24,10 @@ const Header = ({ title, profile }: HeaderProps) => {
 
   window.sessionStorage.setItem('isLogged', `${isLoggedIn}`)
 
-  const handleLogout = () => {
+  const car = () => {
     dispatch(logout())
     navigate('/')
+    window.sessionStorage.setItem('removeButton', 'removeButton')
   }
 
   const askToLogout = () => {
@@ -38,7 +39,7 @@ const Header = ({ title, profile }: HeaderProps) => {
       cancelButtonColor: '#d33'
     }).then(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ({ value }: any) => value && handleLogout()
+      ({ value }: any) => value && car()
     )
   }
 

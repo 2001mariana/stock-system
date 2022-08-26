@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { mdiDelete, mdiEye, mdiPencil } from '@mdi/js'
+import Icon from '@mdi/react'
 import React, { useState } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { User } from '../../services/Authentication.service'
@@ -45,9 +46,7 @@ const Table = ({
   const paginatedData = paginate(organizedData, _itemsPerPage, clickedPage)
   const totalPages = Math.ceil(organizedData.length / _itemsPerPage)
   const navigate = useNavigate()
-  const isLoggedIn = profile
-
-  console.log(isLoggedIn)
+  const isLoggedIn = !!profile?._id
 
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)

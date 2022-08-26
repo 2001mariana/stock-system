@@ -45,9 +45,7 @@ const Table = ({
   const paginatedData = paginate(organizedData, _itemsPerPage, clickedPage)
   const totalPages = Math.ceil(organizedData.length / _itemsPerPage)
   const navigate = useNavigate()
-  const isLoggedIn = profile
-
-  console.log(isLoggedIn)
+  const isLoggedIn = !!profile?._id
 
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)

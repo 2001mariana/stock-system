@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { mdiDelete, mdiEye, mdiPencil } from '@mdi/js'
 import React, { useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
-import { User } from '../../services/Authentication.service'
+import { NavLink } from 'react-router-dom'
 
 import organizeData from '../../utils/organizeDataForTable'
 import paginate from '../../utils/paginate'
@@ -21,7 +21,6 @@ declare interface TableProps {
   data: any[]
   enableActions?: boolean
   itemsPerPage?: number
-  profile?: User
   onDelete?: (item: any) => void
   onEdit?: (item: any) => void
   onViewDetail?: (item: any) => void
@@ -32,7 +31,6 @@ const Table = ({
   data,
   enableActions,
   itemsPerPage,
-  profile,
   onDelete,
   onEdit,
   onViewDetail
@@ -44,10 +42,6 @@ const Table = ({
   const [organizedData, indexedHeaders] = organizeData(data, headers)
   const paginatedData = paginate(organizedData, _itemsPerPage, clickedPage)
   const totalPages = Math.ceil(organizedData.length / _itemsPerPage)
-  const navigate = useNavigate()
-  const isLoggedIn = profile
-
-  console.log(isLoggedIn)
 
   const handleClickPagination = (pageClicked: number) => {
     setClickedPage(pageClicked)
@@ -118,36 +112,11 @@ const Table = ({
           })}
         </tbody>
       </table>
-      <div className="Table__attribute">
-        <Button
-          label="new product"
-          size={'small-xxx'}
-          color={'secondary'}
-          onClick={() => navigate('/')}
-        />
-
-        <div className="Table__pagination">
-          {Array(totalPages)
-            .fill('')
-            .map((_, i) => {
-              return (
-                <NavLink
-                  key={i}
-                  className={
-                    selectedPage.includes(`${i + 1}`) ? selectedPage : ''
-                  }
-                  to={{
-                    pathname: location.pathname,
-                    search: `?page=${i + 1}`
-                  }}
-                  onClick={() => handleClickPagination(i + 1)}
-                >
-                  {i + 1}
-                </NavLink>
-              )
-            })}
-        </div>
+      <div>
+        <Button label="new product" size={'small-xxx'} variant={'outlined'} />
+        
       </div>
+      
     </>
   )
 }
